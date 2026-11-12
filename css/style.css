@@ -1,0 +1,315 @@
+/* 
+    --- 0. Grundläggande styling --- 
+*/
+
+:root {
+    --primary-color: #f5e9db;
+    --secondary-color: #53111c;
+    --pink-color: #d2aeab;
+
+}
+
+body {
+    background-color: var(--secondary-color);
+    margin: 0;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    padding-top: 1rem;
+}
+
+.accent-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+}
+
+
+
+/* 
+    --- 1. Header och navigation --- 
+*/
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    align-items: center;
+    height: 100px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+
+    background-color: var(--primary-color);
+}
+
+.logo {
+    grid-column: 2;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    justify-self: center;
+
+}
+
+
+.logo img {
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+
+
+/* Haburgemeny */
+.menu-toggle {
+    grid-column: 3;
+    justify-self: center;
+    border: none;
+    background-color: transparent;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    width: 50%;
+    justify-self: center;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Visar meny när klassen open läggs till */
+.menu.open {
+    max-height: 500px;
+    transition: max-height 0.5s ease-out;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.menu li {
+    padding-bottom: 1rem;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+
+/*
+    --- Startsidan ---
+*/
+
+
+/* Hero */
+
+.hero {
+    background-color: var(--secondary-color);
+}
+
+
+.hero img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center 10%;
+    opacity: 0.8;
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 10%,
+            black 85%,
+            transparent 100%);
+}
+
+.intro {
+    padding: 0 2.5rem;
+}
+
+/* Bild grid på startsidan */
+.image-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 3rem;
+}
+
+.image-gallery img {
+    max-width: 550px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/*
+ --- Bildregsigerings sidan ---
+*/
+
+.image-intro {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: black;
+    margin: 1.5rem;
+}
+
+.image-intro h1 {
+    margin: 0;
+}
+
+.editing-gallery {
+    padding: 1.5rem;
+}
+
+.image-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.3rem 1rem;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
+.image-comparison h2 {
+    grid-column: 1 / -1;
+}
+
+.image-comparison img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.image-label {
+    margin: 0;
+
+}
+
+.edit-info {
+    grid-column: 1 / -1;
+    margin: 0.2rem 0;
+    text-align: left;
+
+}
+
+/*
+ --- Om mig-sidan ---
+*/
+
+.about {
+    margin: 2.5rem;
+}
+
+.about h1 {
+    grid-column: 1;
+    margin-top: 3rem;
+    font-size: 1.6rem;
+}
+
+.about img {
+    width: 50%;
+    max-width: 180px;
+    height: auto;
+    padding: 0.2rem;
+    border: double 2px #d5ad79;
+    margin-top: 1rem;
+}
+
+
+@media (min-width: 768px) {
+    body {
+        font-size: 1.2rem;
+    }
+
+    .image-gallery {
+        margin-top: 1rem;
+
+    }
+
+    header {
+        height: 140px;
+    }
+
+    .menu-toggle {
+        font-size: 2.5rem;
+    }
+
+
+    .hero img {
+        max-height: 400px;
+        object-position: top;
+
+    }
+
+    .about {
+        display: flex;
+        align-items: center;
+
+        max-width: 1000px;
+        width: 90%;
+        margin: 2rem auto;
+    }
+
+    .about-text {
+        padding: 0.8rem;
+        text-align: left;
+    }
+
+    .about-text h1 {
+        text-align: center;
+    }
+
+}
+
+@media (min-width: 1204px) {
+
+    .hero img {
+        max-height: 440px;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        margin: 1rem auto 0;
+    }
+
+    .image-intro {
+        padding: 1rem 6rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    header {
+        height: 160px;
+    }
+
+    .hero img {
+        max-height: 600px;
+        object-position: top;
+    }
+}
