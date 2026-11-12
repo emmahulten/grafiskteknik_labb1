@@ -293,14 +293,29 @@ header {
         max-height: 440px;
     }
 
+    .intro {
+        width: 60%;
+        margin: 1rem auto;
+    }
+
     .image-gallery {
         grid-template-columns: repeat(3, 1fr);
         margin: 1rem auto 0;
     }
 
     .image-intro {
-        padding: 1rem 6rem;
+        padding: 2rem 6rem;
+        ;
+        width: 70%;
+        margin: 2rem auto;
     }
+
+    .image-intro p {
+        width: 85%;
+        margin: 1rem auto;
+    }
+
+
 }
 
 @media (min-width: 1600px) {
